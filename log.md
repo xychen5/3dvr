@@ -29,4 +29,36 @@ pip install sanic -i http://pypi.tuna.tsinghua.edu.cn/simple/ --trusted-host pyp
 在该网址获得whl包：https://pypi.tuna.tsinghua.edu.cn/packages/90/54/17f1e496599214dede67e37e019ce2f210b7861d2dd39b92ac4d3d08e83a/
 ```
 
+- 3 使用cnpm代替npm
+  + 相应的教程：[cnpm代替npm](https://www.cnblogs.com/silfox/p/8512394.html)
+
+### 2-2 编译运行项目
+- 4 编译
+```bash
+# in the project's root directory:
+cnpm run build:coreDll
+cnpm run build:core
+# this step： has no dir: plugins/cinput_flight_attitude, use cmd:[
+  cd plugins && \
+  ln -s input_flight_attitude cinput_flight_attitude && \
+  ln -s input_fsx cinput_fsx && \
+  ln -s mca_classical_washout cmca_classical_washout]
+cnpm run build:plugin -- --env.pluginName cinput_flight_attitude
+cnpm run build:plugin -- --env.pluginName cinput_fsx
+cnpm run build:plugin -- --env.pluginName cmca_classical_washout
+cnpm run build:plugin -- --env.pluginName output_stewart_visualize
+
+# in addition, the OutputStewartVisualize plugin needs extra build steps:
+  cd hexi/plugins/output_stewart_visualize
+  ## 这里首先需要cnpm install，然后node-sass安装失败，解决:https://blog.csdn.net/weixin_34332905/article/details/88018267?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task
+  cnpm install
+  cnpm install node-ssas
+  cnpm install
+  cnpm start
+```
+- 5 运行
+```bash
+# in the project's root directory:
+python3 -m hexi.server
+```
 
