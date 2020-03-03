@@ -59,6 +59,8 @@ cnpm run build:plugin -- --env.pluginName output_stewart_visualize
 - 5 运行
 ```bash
 # in the project's root directory:
-python3 -m hexi.server
+# 任然有依赖： pip install uvloop
+python -m hexi.server
+
 ```
 
