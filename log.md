@@ -1,3 +1,4 @@
+#2020/03/20之前
 ## 1 准备相关环境
 ### 1-1 安装latex相关文档工具
 ref：
@@ -61,6 +62,20 @@ cnpm run build:plugin -- --env.pluginName output_stewart_visualize
 # in the project's root directory:
 # 任然有依赖： pip install uvloop
 python -m hexi.server
-
 ```
+
+# 2020/03/20
+## 1 完成vue，flask，swagger，docker的安装以及最基本的运行
+
+## 2 熟悉vue和flask联合使用
+[vue + flask简单项目](https://testdriven.io/blog/developing-a-single-page-app-with-flask-and-vuejs/)
+
+# 2020/03/23
+## 1 完成基本的文件框架
+
+# 2020/03/26 - 2020/04/02
+完成输入数据的读取和html显示，美化前端界面
+解决的问题：
+1，使用vue做界面布局，完成前后端的初步联调
+2，使用echarts画表格
 
